@@ -51,7 +51,8 @@ output_file = "video_links.txt"
 video_links = get_video_links(channel_url)
 save_links_to_file(video_links, output_file)
 
-print(f"Found {len(video_links)} unique video links. Saved to {output_file}")import streamlit as st
+print(f"Found {len(video_links)} unique video links. Saved to {output_file}")
+import streamlit as st
 import yt_dlp
 import requests
 from urllib.parse import urlparse
