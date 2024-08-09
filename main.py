@@ -43,27 +43,27 @@ def download_thumbnail(thumbnail_url):
 
 def main():
     st.title("Odysee Video Downloader")
-    
+
     video_url = get_video_url()
-    
+
     if video_url:
         st.info(f"Attempting to fetch video information from: {video_url}")
-        
+
         if st.button("Fetch Video"):
             video_title, direct_video_url, thumbnail_url, description = fetch_video_info(video_url)
-            
+
             if video_title and direct_video_url:
                 st.success(f"Video information fetched successfully: {video_title}")
-                
+
                 # Display thumbnail if available
                 thumbnail_data = download_thumbnail(thumbnail_url)
                 if thumbnail_data:
                     st.image(thumbnail_data, caption="Video Thumbnail")
-                
+
                 # Display description
                 st.subheader("Video Description")
                 st.text_area("", description, height=200, disabled=True)
-                
+
                 # Provide download button for the video
                 st.download_button(
                     label="Download Video",
